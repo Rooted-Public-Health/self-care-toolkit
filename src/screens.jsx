@@ -89,7 +89,7 @@ export function Choose({ selectedId, onSelect, onNext, onBack }) {
       >
         <p>
           Self-care extends far beyond your basic physical needs. Select a
-          dimension on the wheel — or spin — and we will lead with that area
+          dimension on the wheel, or spin, and we will lead with that area
           through your planners.
         </p>
       </SectionHead>
@@ -129,7 +129,7 @@ export function Evaluate({ plan, setPlan, onNext, onBack, startId }) {
         <p>{COPY.step1}</p>
         <p>
           Rate how well you are attending to each dimension of wellness right
-          now. There is no one-size-fits-all option — be honest with yourself.
+          now. There is no one-size-fits-all option. Be honest with yourself.
         </p>
       </SectionHead>
       <div className="rate-grid">
@@ -257,7 +257,7 @@ export function DailyPlanner({ plan, setPlan, startId, onNext, onBack }) {
           ))}
         </div>
       </div>
-      <p className="examples-label">Additional examples — tap to add to {focusName}:</p>
+      <p className="examples-label">Additional examples (tap to add to {focusName}):</p>
       <div className="chips">
         {ADDITIONAL_EXAMPLES.map((ex) => (
           <button key={ex} type="button" className="chip" onClick={() => addExample(ex)}>
@@ -455,13 +455,38 @@ export function Goals({ plan, setPlan, onNext, onBack }) {
 }
 
 export function OneSheet({ plan, onBack, onReset }) {
+  const [downloading, setDownloading] = useState(false)
+
+  async function handleDownload() {
+    setDownloading(true)
+    try {
+      const { downloadPlanPdf } = await import('./exportPdf')
+      downloadPlanPdf(plan)
+    } finally {
+      window.setTimeout(() => setDownloading(false), 400)
+    }
+  }
+
   return (
     <section className="page onesheet-page">
       <SectionHead title="My one-sheet self-care planner">
         <p>{COPY.onesheetIntro}</p>
       </SectionHead>
+      <div className="save-note">
+        Answers are saved in this browser on this computer or phone. Clearing
+        site data, using another device, or a different browser will not show
+        this plan. Download the PDF to keep the whole completed toolkit.
+      </div>
       <div className="print-actions">
-        <button type="button" className="btn btn-primary" onClick={() => window.print()}>
+        <button
+          type="button"
+          className="btn btn-primary"
+          onClick={handleDownload}
+          disabled={downloading}
+        >
+          {downloading ? 'Preparing PDF…' : 'Download PDF'}
+        </button>
+        <button type="button" className="btn btn-ghost" onClick={() => window.print()}>
           Print this page
         </button>
         <button type="button" className="btn btn-ghost" onClick={onReset}>

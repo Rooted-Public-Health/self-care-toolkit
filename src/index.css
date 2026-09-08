@@ -483,6 +483,15 @@ img, svg { display: block; max-width: 100%; }
 }
 .hibiscus { width: 56px; height: 56px; margin: 0 auto 8px; }
 
+.save-note {
+  background: #e3f3ff;
+  border: 1px solid var(--sky);
+  border-radius: 10px;
+  padding: 12px 14px;
+  font-family: var(--sans);
+  font-size: 0.95rem;
+  margin-bottom: 14px;
+}
 .print-actions { display: flex; gap: 10px; margin-bottom: 16px; flex-wrap: wrap; }
 .onesheet {
   border: 1px solid var(--line);
@@ -530,7 +539,7 @@ img, svg { display: block; max-width: 100%; }
 }
 
 @media print {
-  .topbar, .start-banner, .footer-nav, .print-actions, .section-head .lede, .kicker {
+  .topbar, .start-banner, .footer-nav, .print-actions, .save-note, .section-head .lede, .kicker {
     display: none !important;
   }
   .main { padding: 0; }

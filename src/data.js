@@ -232,7 +232,7 @@ export const COPY = {
   step2:
     'When considering what it takes to be well, we need to have both daily and emergency self-care strategies. Remember that self-care extends far beyond your basic physical needs: consider each dimension of wellness.',
   step2Reflect:
-    'What are you doing to support your overall well-being on a day-to-day basis? Do you engage in self-care practices now? Are you more active in some areas of self-care than others? Begin to reflect on these questions — we will use them for filling in our self-care planners.',
+    'What are you doing to support your overall well-being on a day-to-day basis? Do you engage in self-care practices now? Are you more active in some areas of self-care than others? Begin to reflect on these questions. We will use them for filling in our self-care planners.',
   step3Intro:
     'We will begin by focusing on our daily self-care. Take a moment to consider what you value and need in your everyday life (daily self-care needs).',
   dailyPrompt: 'List your favorite practices for each category. Examples are listed as a guide:',
@@ -251,7 +251,7 @@ export const COPY = {
   finalStep:
     'Now that you’ve created your self-care plan, look at it regularly. Throughout the workshop series, we will be adding helpful strategies and tools to your toolkit. Make a commitment to yourself and practice your self-care routine as often as possible. Reference this plan often so that you can update it with what works and does not work for you.',
   onesheetIntro:
-    'This one-sheet self-care planner includes the daily self-care plan, the emergency self-care plan, and a space for your goals so that you can have everything in one place to reference. Print it to have at your desk, in your wallet, etc.',
+    'This one-sheet self-care planner includes the daily self-care plan, the emergency self-care plan, and a space for your goals so that you can have everything in one place to reference. Your answers stay on this device only. They are not sent to a server. Download a PDF to keep a copy for your desk, wallet, or records.',
 }
 
 export function dimById(id) {
